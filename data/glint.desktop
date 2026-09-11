@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Glint
+Comment=Take a full screen, window, or region screenshot
+Exec=glint
+Icon=glint
+Terminal=false
+Categories=Utility;Graphics;
+Keywords=screenshot;capture;snip;snapshot;region;
+StartupNotify=false
