@@ -15,6 +15,7 @@ BIN_DIR="${HOME}/.local/bin"
 LIB_DIR="${HOME}/.local/lib/glint"
 APPS_DIR="${HOME}/.local/share/applications"
 ICONS_DIR="${HOME}/.local/share/icons/hicolor/512x512/apps"
+SVG_DIR="${HOME}/.local/share/icons/hicolor/scalable/apps"
 
 echo "==> Checking required dependencies..."
 MISSING=()
@@ -54,7 +55,7 @@ if ! command -v notify-send >/dev/null 2>&1; then
     echo "        on both Unity and MATE; if not: sudo apt install libnotify-bin"
 fi
 
-mkdir -p "$BIN_DIR" "$LIB_DIR" "$APPS_DIR" "$ICONS_DIR"
+mkdir -p "$BIN_DIR" "$LIB_DIR" "$APPS_DIR" "$ICONS_DIR" "$SVG_DIR"
 
 echo "==> Installing Glint's modules to $LIB_DIR"
 install -m 644 glint_common.py "$LIB_DIR/glint_common.py"
@@ -74,6 +75,7 @@ install -m 644 data/glint.desktop "$APPS_DIR/glint.desktop"
 
 echo "==> Installing icon"
 install -m 644 data/icons/glint.png "$ICONS_DIR/glint.png"
+install -m 644 data/icons/glint.svg "$SVG_DIR/glint.svg"
 
 if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database "$APPS_DIR" >/dev/null 2>&1 || true

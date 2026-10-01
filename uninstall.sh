@@ -8,6 +8,7 @@ BIN_DIR="${HOME}/.local/bin"
 LIB_DIR="${HOME}/.local/lib/glint"
 APPS_DIR="${HOME}/.local/share/applications"
 ICONS_DIR="${HOME}/.local/share/icons/hicolor/512x512/apps"
+SVG_DIR="${HOME}/.local/share/icons/hicolor/scalable/apps"
 CONFIG_DIR="${HOME}/.config/glint"
 
 echo "==> Removing $BIN_DIR/glint"
@@ -20,7 +21,7 @@ echo "==> Removing desktop entry"
 rm -f "$APPS_DIR/glint.desktop"
 
 echo "==> Removing icon"
-rm -f "$ICONS_DIR/glint.png"
+rm -f "$ICONS_DIR/glint.png" "$SVG_DIR/glint.svg"
 
 if command -v update-desktop-database >/dev/null 2>&1; then
     update-desktop-database "$APPS_DIR" >/dev/null 2>&1 || true
